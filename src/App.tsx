@@ -33,13 +33,14 @@ function App() {
   const [currentLocationName, setCurrentLocationName] = useState<string>("");
   const changeLocationHandler = (location: string) => {
     setCurrentLocationName(location);
-    setDataMenu("hour");
+    // setDataMenu("hour");
   };
 
   // When we have in localStorage some city data, we redirect to the page
   useEffect(() => {
     if (data !== null) {
       navigate(`/location/hourly`);
+      setDataMenu("hour");
     }
   }, [data]);
 
