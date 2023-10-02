@@ -54,7 +54,11 @@ export const HourlyWeather = ({ data }: IHourlyWeather) => {
             </div>
           ))}
       </div>
-      <CurrentWeather data={dataToShow} />
+      <CurrentWeather
+        data={dataToShow}
+        timezone={data?.timezone_offset}
+        type={"hourly"}
+      />
     </div>
   );
 };

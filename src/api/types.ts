@@ -9,6 +9,9 @@ export interface IHourlyData {
   temp: number;
   uvi: number;
   visibility: number;
+  sunrise?: number;
+  sunset?: number;
+  moon_phase?: number;
   weather: IWeatherInfo[];
   wind_deg: number;
   wind_speed: number;
@@ -37,6 +40,7 @@ export interface IDailyData {
   pop: number;
   pressure: number;
   sunrise: number;
+  visibility?: number;
   sunset: number;
   temp: {
     day: number;

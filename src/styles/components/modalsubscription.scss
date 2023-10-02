@@ -13,7 +13,7 @@
     height: 30%;
     width: 40%;
     border-radius: 20px;
-    padding: 16px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -27,6 +27,12 @@
       align-self: end;
       .button-footer {
         cursor: pointer;
+        background: transparent;
+        padding: 8px;
+        border-radius: 8px;
+        @include themify($themes) {
+          border: 1px solid themed("colorText");
+        }
       }
       .subscribeMe {
         margin-left: 16px;
@@ -42,7 +48,7 @@
 @media (max-width: 768px) {
   .modal {
     .modal-content {
-      width: 90%;
+      width: 80%;
     }
   }
 }

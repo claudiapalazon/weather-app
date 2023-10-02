@@ -1,5 +1,10 @@
 .themeSetter {
-  position: fixed;
+  position: absolute;
   top: 24px;
   right: 24px;
+  .buttonSetter {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
 }

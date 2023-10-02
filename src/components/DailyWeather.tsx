@@ -57,7 +57,11 @@ export const DailyWeather = ({ data }: IDailyWeather) => {
             </div>
           ))}
       </div>
-      <CurrentWeather data={dataToShow} />
+      <CurrentWeather
+        data={dataToShow}
+        timezone={data?.timezone_offset}
+        type={"daily"}
+      />
     </div>
   );
 };

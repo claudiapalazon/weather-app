@@ -1,8 +1,20 @@
 .cardCurrentWeather {
   @extend .card;
   margin-top: 16px;
+  margin-bottom: 50px;
+
   .currentTemp {
     font-size: 42px;
+  }
+  .maxMindiv {
+    display: flex;
+    align-items: center;
+  }
+  .maxminTemp {
+    font-size: 32px;
+  }
+  .marginMin {
+    margin-left: 12px;
   }
   .iconDescription {
     display: flex;
@@ -19,5 +31,42 @@
 
   .currentIcon {
     width: 90px;
+  }
+}
+.divCardSingleData {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.cardSingleData {
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  .elements {
+    width: 50%;
+    margin-bottom: 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    .iconElement {
+      display: flex;
+      align-items: center;
+      width: 18px;
+      margin-right: 4px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cardSingleData {
+    padding: 0px;
+    padding-top: 16px;
+    .elements {
+      width: 100%;
+    }
+    .marginMin {
+      margin-left: 0px;
+    }
   }
 }
