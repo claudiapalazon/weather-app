@@ -1,5 +1,6 @@
 {
   "name": "meteologica-weather",
+  "homepage": "https://claudiapalazon.github.io/weather-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +11,7 @@
     "@types/node": "^20.6.4",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
+    "gh-pages": "^6.0.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,6 +22,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
