@@ -4,6 +4,7 @@ import { IWeatherData } from "../api/types";
 
 interface IHomeData {
   setData: (data: null | IWeatherData) => void;
+  refreshData: boolean;
   setShowModal: (showModal: boolean) => void;
   changeLocationHandler: (location: string) => void;
   currentLocationName: string;
@@ -12,6 +13,7 @@ interface IHomeData {
 
 export const Home = ({
   setData,
+  refreshData,
   setShowModal,
   changeLocationHandler,
   currentLocationName,
@@ -20,6 +22,7 @@ export const Home = ({
   //This line is the one who get the fetch data of OpenWeatherMap with the location name. It returns loading or error
   const { isLoading, error } = useWeather(
     currentLocationName,
+    refreshData,
     setData,
     setShowModal
   );

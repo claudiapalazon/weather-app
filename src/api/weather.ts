@@ -36,6 +36,7 @@ const FetchWeatherData = async (location: string): Promise<IFetchWeather> => {
 
 export const useWeather = (
   locationName: string,
+  refreshData: boolean,
   setData: (data: null | IWeatherData) => void,
   setShowModal: (showModal: boolean) => void
 ) => {
@@ -61,7 +62,7 @@ export const useWeather = (
         setError(weatherFetch.error);
       })();
     }
-  }, [locationName]);
+  }, [locationName, refreshData]);
 
   return {
     isLoading,

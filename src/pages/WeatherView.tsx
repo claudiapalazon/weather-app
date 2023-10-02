@@ -10,6 +10,7 @@ import { ThemeContext } from "../contexts/theme-context";
 
 interface IWeatherView {
   data: null | IWeatherData;
+  refreshData: boolean;
   setData: (data: null | IWeatherData) => void;
   setShowModal: (showModal: boolean) => void;
   dayOrWeakly: string;
@@ -20,6 +21,7 @@ interface IWeatherView {
 
 export const WeatherView = ({
   data,
+  refreshData,
   setData,
   dayOrWeakly,
   setShowModal,
@@ -70,6 +72,7 @@ export const WeatherView = ({
 
             <Home
               setData={setData}
+              refreshData={refreshData}
               setShowModal={setShowModal}
               changeLocationHandler={changeLocationHandler}
               currentLocationName={currentLocationName}

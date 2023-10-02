@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
   .modal-content {
-    height: 30%;
     width: 40%;
     border-radius: 20px;
     padding: 24px;
@@ -23,6 +22,9 @@
         font-size: 20px;
       }
     }
+    .modal-body {
+      margin-bottom: 16px;
+    }
     .modal-footer {
       align-self: end;
       .button-footer {
@@ -32,6 +34,7 @@
         border-radius: 8px;
         @include themify($themes) {
           border: 1px solid themed("colorText");
+          color: themed("colorText");
         }
       }
       .subscribeMe {

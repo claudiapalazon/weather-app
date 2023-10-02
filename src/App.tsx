@@ -31,9 +31,11 @@ function App() {
 
   // Set the location input search
   const [currentLocationName, setCurrentLocationName] = useState<string>("");
+  const [refreshData, setRefreshData] = useState<boolean>(false);
+
   const changeLocationHandler = (location: string) => {
     setCurrentLocationName(location);
-    // setDataMenu("hour");
+    setRefreshData(!refreshData);
   };
 
   // When we have in localStorage some city data, we redirect to the page
@@ -57,6 +59,7 @@ function App() {
             element={
               <Home
                 setData={setData}
+                refreshData={refreshData}
                 setShowModal={setShowModal}
                 changeLocationHandler={changeLocationHandler}
                 currentLocationName={currentLocationName}
@@ -69,6 +72,7 @@ function App() {
             element={
               <WeatherView
                 data={data}
+                refreshData={refreshData}
                 setData={setData}
                 setShowModal={setShowModal}
                 dayOrWeakly={dayOrWeakly}
