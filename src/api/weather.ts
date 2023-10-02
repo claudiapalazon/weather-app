@@ -14,7 +14,7 @@ const FetchWeatherData = async (location: string): Promise<IFetchWeather> => {
   let loading = true;
   let error = false;
   try {
-    let urlGeo = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`;
+    let urlGeo = `https://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`;
     const getDataLocation = await fetch(urlGeo);
     let dataLocation = await getDataLocation.json();
     if (dataLocation) {
