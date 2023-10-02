@@ -1,0 +1,48 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .modal-content {
+    height: 30%;
+    width: 40%;
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .modal-header {
+      margin-bottom: 16px;
+      .modal-title {
+        font-size: 20px;
+      }
+    }
+    .modal-footer {
+      align-self: end;
+      .button-footer {
+        cursor: pointer;
+      }
+      .subscribeMe {
+        margin-left: 16px;
+      }
+    }
+    @include themify($themes) {
+      background-color: themed("colorBackground");
+      color: themed("colorText");
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    .modal-content {
+      width: 90%;
+    }
+  }
+}

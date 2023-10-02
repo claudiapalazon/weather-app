@@ -1,0 +1,23 @@
+.cardCurrentWeather {
+  @extend .card;
+  margin-top: 16px;
+  .currentTemp {
+    font-size: 42px;
+  }
+  .iconDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .headerCurrentW {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222736;
+    padding-bottom: 8px;
+  }
+
+  .currentIcon {
+    width: 90px;
+  }
+}

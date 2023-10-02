@@ -1,0 +1,67 @@
+.generalWeatherView {
+  width: 70%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+
+  .divCurrentLocationBasic {
+    .divNameRefresh {
+      display: flex;
+      align-items: center;
+    }
+    .locationName {
+      margin-right: 8px;
+      font-size: 32px;
+    }
+    .locationDate {
+      margin-top: 4px;
+      font-size: 16px;
+    }
+  }
+  .emptyText {
+    margin-top: 4px;
+    margin-left: 8px;
+    font-size: 12px;
+  }
+  .button-refresh {
+    border-radius: 80px;
+    cursor: pointer;
+    background-color: transparent;
+    @include themify($themes) {
+      border: 1px solid themed("colorText");
+      color: themed("colorText");
+    }
+  }
+  .single-button {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .iconRefresh {
+      width: 16px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .generalWeatherView {
+    width: 90%;
+  }
+  .header {
+    flex-direction: column;
+    margin-top: 60px;
+    .divCurrentLocationBasic {
+      text-align: center;
+      margin-top: 16px;
+      order: 1;
+      .divNameRefresh {
+        justify-content: center;
+      }
+    }
+  }
+}

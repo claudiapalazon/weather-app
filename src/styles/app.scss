@@ -1,0 +1,21 @@
+// Theme
+@import "./theme/theme-variables.scss";
+
+// Pages
+@import "./pages/general.scss";
+@import "./pages/home.scss";
+@import "./pages/notfound.scss";
+@import "./pages/WeatherView.scss";
+
+// Elements
+@import "./elements/scroll.scss";
+@import "./elements/card.scss";
+
+// Components
+@import "./components/modalsubscription.scss";
+@import "./components/searchBar.scss";
+@import "./components/themeSetter.scss";
+@import "./components/currentWeather.scss";
+@import "./components/menuDayHour.scss";
+@import "./components/hourlyWeather.scss";
+@import "./components/dailyWeather.scss";

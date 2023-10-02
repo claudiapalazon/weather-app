@@ -1,0 +1,25 @@
+.hourView {
+  display: flex;
+  margin-top: 16px;
+  overflow-x: scroll;
+  padding-bottom: 12px;
+  .cardHourView {
+    @extend .card;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    .hourlyIcon {
+      width: 50px;
+    }
+    .hourlyTemp {
+      margin-top: 8px;
+    }
+  }
+  .selected {
+    @include themify($themes) {
+      border: 3px solid themed("colorBackgroundElements");
+    }
+  }
+}

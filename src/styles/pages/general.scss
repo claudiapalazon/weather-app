@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  @include themify($themes) {
+    background-color: themed("colorBackground");
+    color: themed("colorText");
+  }
+}
+
+body {
+  margin: 0px;
+  font-family: "Roboto";
+}

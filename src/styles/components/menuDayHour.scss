@@ -1,0 +1,22 @@
+.menuButtons {
+  display: flex;
+  margin-top: 24px;
+  .menuOption {
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    @include themify($themes) {
+      color: themed("colorText");
+    }
+  }
+  .hourOption {
+    margin-left: 16px;
+  }
+  .selected {
+    @include themify($themes) {
+      border-bottom: 4px solid themed("colorBackgroundElements");
+    }
+  }
+}
