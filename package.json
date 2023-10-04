@@ -48,5 +48,10 @@
   },
   "devDependencies": {
     "sass": "^1.68.0"
+  },
+  "overrides": {
+    "react-scripts": {
+      "typescript": "^5"
+    }
   }
 }
