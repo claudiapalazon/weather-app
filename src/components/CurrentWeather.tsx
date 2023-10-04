@@ -17,6 +17,7 @@ interface ICurrentWeather {
   type: string;
 }
 
+// This is the card that appears in hourly view and daily view with weather information
 export const CurrentWeather = ({ data, timezone, type }: ICurrentWeather) => {
   const weatherCode =
     data?.weather[0].icon !== "" ? `${data?.weather[0].icon}` : "01d";

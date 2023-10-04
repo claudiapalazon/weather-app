@@ -15,6 +15,8 @@ import { ModalSubscription } from "./components/ModalSubscription";
 
 function App() {
   const navigate = useNavigate();
+
+  // Set the Menu view of the app to Hour view
   const [dayOrWeakly, setDataMenu] = useState<string>("hour");
 
   // Show subscribe Modal Settings
@@ -33,6 +35,7 @@ function App() {
   const [currentLocationName, setCurrentLocationName] = useState<string>("");
   const [refreshData, setRefreshData] = useState<boolean>(false);
 
+  // This handler is the one that is called everytime we change the location or refresh it
   const changeLocationHandler = (location: string) => {
     setCurrentLocationName(location);
     setRefreshData(!refreshData);
@@ -48,8 +51,8 @@ function App() {
 
   return (
     <ThemeProvider>
+      {/* ThemeProvider is englobing the app because we need it for change the theme */}
       <div className="app">
-        {/* ThemeSetter is englobing the app because we need it for change the theme */}
         {showModal ? <ModalSubscription setShowModal={setShowModal} /> : null}
         <ThemeSetter />
         <Routes>

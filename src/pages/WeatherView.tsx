@@ -19,6 +19,7 @@ interface IWeatherView {
   currentLocationName: string;
 }
 
+// This is the page that shows when we have data
 export const WeatherView = ({
   data,
   refreshData,

@@ -7,6 +7,7 @@ interface IHourlyWeather {
   data: null | IWeatherData;
 }
 
+// Hourly view of the data
 export const HourlyWeather = ({ data }: IHourlyWeather) => {
   const getWeatherCode = (icon: string) => {
     return icon !== "" ? `${icon}` : "01d";

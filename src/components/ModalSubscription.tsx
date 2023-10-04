@@ -2,6 +2,7 @@ interface IModal {
   setShowModal: (showModal: boolean) => void;
 }
 
+// This modal appears when you get the limit of +5 searchs or refresh location
 export const ModalSubscription = ({ setShowModal }: IModal) => {
   return (
     <div className="modal">

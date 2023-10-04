@@ -7,6 +7,7 @@ interface IDailyWeather {
   data: null | IWeatherData;
 }
 
+// Daily view of the data
 export const DailyWeather = ({ data }: IDailyWeather) => {
   const getWeatherCode = (icon: string) => {
     return icon !== "" ? `${icon}` : "01d";
