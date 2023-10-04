@@ -25,6 +25,7 @@
 ## Desarrollado con
 - React
 - Typescript
+- HTML
 - SASS
 
 ## Deploy con
