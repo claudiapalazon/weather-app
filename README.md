@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**DEMO En tiempo real aquí:** https://claudiapalazon.github.io/weather-app/
 
-## Available Scripts
+**Descripción**: Se trata de una aplicación del tiempo que permite la búsqueda de cualquier ciudad usando la Api **OpenWeather**. Dentro de la aplicación, puedes ver el tiempo actual y la predicción hasta 24h después en el apartado por **Horas**. También puedes ver hasta una semana después en el apartado por **Días**. La app está disponible en **light** y **dark mode**. Cuando se supere la búsqueda de 5 localidades o se actualice la información de la localidad seleccionada, aparecerá un aviso de que se ha superado el límite de prueba gratuito y el enlace de la suscripción. (En esta versión beta, se puede reiniciar la app para seguir utilizándola en la propia modal).
 
-In the project directory, you can run:
+## Previsualización
 
-### `npm start`
+#### Vista página principal
+<img width="600" alt="preview app" src="https://github.com/claudiapalazon/weather-app/assets/64781684/729c06fe-93f2-42a4-8e49-4e168c10c9c7">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Vista con información - Light mode
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img width="600" alt="preview data light" src="https://github.com/claudiapalazon/weather-app/assets/64781684/7ba4bd6c-7596-4673-9dbd-a194d6b3fd6b">
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Vista con información - Dark mode
 
-### `npm run build`
+<img width="600" alt="preview data dark" src="https://github.com/claudiapalazon/weather-app/assets/64781684/695aaf9d-11e2-440e-a41d-f6dcbb781308">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Responsive
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="200" alt="responsive view" src="https://github.com/claudiapalazon/weather-app/assets/64781684/d19ba85b-6d41-41f4-ae8f-a3fcbee98789">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Desarrollado con
+- React
+- Typescript
+- SASS
 
-### `npm run eject`
+## Deploy con
+- Github Pages
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Recursos
+- Iconos de la Comunidad de Figma
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Configuración para lanzar la app en local
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para lanzar la aplicación en local se necesita añadir en la raíz del proyecto un archivo **.env** con la **OpenWeather API Key**. En este caso se ha utilizado la siguiente:
+**https://openweathermap.org/api/one-call-3** además de **https://openweathermap.org/api/geocoding-api**. Ambas funcionan con la misma API Key, la primera es para recibir la información del tiempo, la segunda es la que recoge el nombre de la localidad deseada y le pasa sus coordenadas a la primera.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+REACT_APP_OPENWEATHER_API_KEY = 'YOUR_API_KEY'
+```
+#### Lanzar el proyecto
 
-## Learn More
+En la terminal en la ruta del proyecto, hay que seguir los siguientes pasos:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm install -> para instalar las dependencias
+npm run start -> para lanzar el proyecto en local
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Script de empaquetado
+
+Se ha creado un script para subir la aplicación a Github Pages
+
+```
+npm run deploy
+```
+
+
