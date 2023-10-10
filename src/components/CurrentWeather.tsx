@@ -149,12 +149,14 @@ export const CurrentWeather = ({ data, timezone, type }: ICurrentWeather) => {
               <img
                 className="iconElement"
                 src={require(`../assets/icons/moon_${
-                  data?.moon_phase ? getMoonData(data?.moon_phase).icon : 0
+                  data?.moon_phase ? getMoonData(data?.moon_phase).icon : 3
                 }.svg`)}
                 alt=""
               />
               Fase Lunar:{" "}
-              {data?.moon_phase ? getMoonData(data?.moon_phase).name : null}
+              {data?.moon_phase
+                ? getMoonData(data?.moon_phase).name
+                : "Luna Nueva"}
             </div>
           </>
         ) : null}
