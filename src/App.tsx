@@ -17,7 +17,7 @@ function App() {
   const navigate = useNavigate();
 
   // Set the Menu view of the app to Hour view
-  const [dayOrWeakly, setDataMenu] = useState<string>("hour");
+  const [dayOrWeekly, setDataMenu] = useState<string>("hour");
 
   // Show subscribe Modal Settings
   const showModalLocal = localStorage.getItem("showModalNumber");
@@ -25,11 +25,18 @@ function App() {
     showModalLocal && parseInt(showModalLocal) > 5 ? true : false
   );
 
-  // Set weather data
-  const localStorageWeather = JSON.parse(localStorage.getItem("weatherData")!);
-  const [data, setData] = useState<IWeatherData | null>(
-    localStorageWeather ? localStorageWeather : null
-  );
+  // Set weather data (safe parse: invalid or missing localStorage → null)
+  const getInitialWeatherData = (): IWeatherData | null => {
+    try {
+      const raw = localStorage.getItem("weatherData");
+      if (!raw) return null;
+      const parsed = JSON.parse(raw) as IWeatherData;
+      return parsed && parsed.current ? parsed : null;
+    } catch {
+      return null;
+    }
+  };
+  const [data, setData] = useState<IWeatherData | null>(getInitialWeatherData);
 
   // Set the location input search
   const [currentLocationName, setCurrentLocationName] = useState<string>("");
@@ -78,7 +85,7 @@ function App() {
                 refreshData={refreshData}
                 setData={setData}
                 setShowModal={setShowModal}
-                dayOrWeakly={dayOrWeakly}
+                dayOrWeekly={dayOrWeekly}
                 setDataMenu={setDataMenu}
                 changeLocationHandler={changeLocationHandler}
                 currentLocationName={currentLocationName}

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { IWeatherData } from "./types";
+
 const apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
 interface IFetchWeather {
@@ -13,19 +14,28 @@ const FetchWeatherData = async (location: string): Promise<IFetchWeather> => {
   let data = null;
   let loading = true;
   let error = false;
+
+  if (!apiKey?.trim()) {
+    if (process.env.NODE_ENV === "development") {
+      console.warn(
+        "OpenWeather API key missing. Crea un archivo .env en la raíz con: REACT_APP_OPENWEATHER_API_KEY=tu_api_key"
+      );
+    }
+    return { data: null, loading: false, error: true };
+  }
+
   try {
-    let urlGeo = `https://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`;
+    const urlGeo = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(location)}&appid=${apiKey}`;
     const getDataLocation = await fetch(urlGeo);
     let dataLocation = await getDataLocation.json();
-    if (dataLocation) {
-      let urlWeather = `https://api.openweathermap.org/data/3.0/onecall?lat=${dataLocation[0].lat}&lon=${dataLocation[0].lon}&units=metric&appid=${apiKey}&lang=es&`;
+    if (dataLocation?.length) {
+      const urlWeather = `https://api.openweathermap.org/data/3.0/onecall?lat=${dataLocation[0].lat}&lon=${dataLocation[0].lon}&units=metric&appid=${apiKey}&lang=es&`;
       const getWeatherData = await fetch(urlWeather);
-      let weatherData = await getWeatherData.json();
-      data = weatherData;
-      data["locationName"] = location;
+      const weatherData = await getWeatherData.json();
+      data = { ...weatherData, locationName: location };
       localStorage.setItem("weatherData", JSON.stringify(data));
     }
-  } catch (err: any) {
+  } catch {
     error = true;
   } finally {
     loading = false;

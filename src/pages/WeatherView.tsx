@@ -13,8 +13,8 @@ interface IWeatherView {
   refreshData: boolean;
   setData: (data: null | IWeatherData) => void;
   setShowModal: (showModal: boolean) => void;
-  dayOrWeakly: string;
-  setDataMenu: (dayOrWeakly: string) => void;
+  dayOrWeekly: string;
+  setDataMenu: (dayOrWeekly: string) => void;
   changeLocationHandler: (location: string) => void;
   currentLocationName: string;
 }
@@ -24,7 +24,7 @@ export const WeatherView = ({
   data,
   refreshData,
   setData,
-  dayOrWeakly,
+  dayOrWeekly,
   setShowModal,
   setDataMenu,
   changeLocationHandler,
@@ -80,7 +80,7 @@ export const WeatherView = ({
               fromWeather={true}
             />
           </div>
-          <MenuDayHour dayOrWeakly={dayOrWeakly} setDataMenu={setDataMenu} />
+          <MenuDayHour dayOrWeekly={dayOrWeekly} setDataMenu={setDataMenu} />
         </div>
       ) : (
         <NotFound />

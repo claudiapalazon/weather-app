@@ -1,17 +1,17 @@
 import { Link, Outlet } from "react-router-dom";
 
 interface IMenu {
-  dayOrWeakly: string;
-  setDataMenu: (dayOrWeakly: string) => void;
+  dayOrWeekly: string;
+  setDataMenu: (dayOrWeekly: string) => void;
 }
 
-export const MenuDayHour = ({ dayOrWeakly, setDataMenu }: IMenu) => {
+export const MenuDayHour = ({ dayOrWeekly, setDataMenu }: IMenu) => {
   return (
     <>
       <nav className="menuButtons">
         <Link
           className={
-            dayOrWeakly === "hour" ? "menuOption selected" : "menuOption"
+            dayOrWeekly === "hour" ? "menuOption selected" : "menuOption"
           }
           onClick={() => {
             setDataMenu("hour");
@@ -22,12 +22,12 @@ export const MenuDayHour = ({ dayOrWeakly, setDataMenu }: IMenu) => {
         </Link>
         <Link
           className={
-            dayOrWeakly === "weakly"
+            dayOrWeekly === "weekly"
               ? "menuOption hourOption selected"
               : "menuOption hourOption"
           }
           onClick={() => {
-            setDataMenu("weakly");
+            setDataMenu("weekly");
           }}
           to="daily"
         >

@@ -1,62 +1,131 @@
-# Weather App
+# 🌤️ Weather App — El Tiempo
 
-**DEMO En tiempo real aquí:** https://claudiapalazon.github.io/weather-app/
+Aplicación del tiempo desarrollada con **React** y **TypeScript** que consume la API de OpenWeather. Incluye búsqueda por ciudad, predicción por horas (24h) y por días (hasta una semana), modo claro/oscuro y diseño responsive.
 
-**Descripción**: Se trata de una aplicación del tiempo que permite la búsqueda de cualquier ciudad usando la Api **OpenWeather**. Dentro de la aplicación, puedes ver el tiempo actual y la predicción hasta 24h después en el apartado por **Horas**. También puedes ver hasta una semana después en el apartado por **Días**. La app está disponible en **light** y **dark mode**. Cuando se supere la búsqueda de 5 localidades o se actualice la información de la localidad seleccionada, aparecerá un aviso de que se ha superado el límite de prueba gratuito y el enlace de la suscripción. (En esta versión beta, se puede reiniciar la app para seguir utilizándola en la propia modal).
+**Demo en vivo:** [https://claudiapalazon.github.io/weather-app/](https://claudiapalazon.github.io/weather-app/)
 
-## Previsualización
+---
 
-#### Vista página principal
-<img width="600" alt="preview app" src="https://github.com/claudiapalazon/weather-app/assets/64781684/729c06fe-93f2-42a4-8e49-4e168c10c9c7">
+## ✨ Características
 
-#### Vista con información - Light mode
+- **Búsqueda por ciudad** usando Geocoding API y One Call 3 de OpenWeather
+- **Vista por horas**: predicción hasta 24 horas con detalle (temperatura, sensación térmica, viento, humedad, UV, etc.)
+- **Vista por días**: predicción semanal con máx/mín, fases lunares, amanecer/atardecer
+- **Tema claro y oscuro** con detección de preferencia del sistema y persistencia en `localStorage`
+- **Diseño responsive** para móvil y escritorio
+- **Persistencia**: última búsqueda guardada para no perder el estado al recargar
+- **Modal informativo** cuando se supera el límite de la API gratuita (con opción de reinicio para pruebas)
 
-<img width="600" alt="preview data light" src="https://github.com/claudiapalazon/weather-app/assets/64781684/7ba4bd6c-7596-4673-9dbd-a194d6b3fd6b">
+---
 
+## 📸 Previsualización
 
-#### Vista con información - Dark mode
+### Vista principal (búsqueda)
 
-<img width="600" alt="preview data dark" src="https://github.com/claudiapalazon/weather-app/assets/64781684/695aaf9d-11e2-440e-a41d-f6dcbb781308">
+<img width="600" alt="Vista principal - búsqueda" src="https://github.com/claudiapalazon/weather-app/assets/64781684/729c06fe-93f2-42a4-8e49-4e168c10c9c7">
 
-#### Responsive
+### Vista con datos — Light mode
 
-<img width="200" alt="responsive view" src="https://github.com/claudiapalazon/weather-app/assets/64781684/d19ba85b-6d41-41f4-ae8f-a3fcbee98789">
+<img width="600" alt="Vista con datos - modo claro" src="https://github.com/claudiapalazon/weather-app/assets/64781684/7ba4bd6c-7596-4673-9dbd-a194d6b3fd6b">
 
-## Desarrollado con
-- React
-- Typescript
-- HTML
-- SASS
+### Vista con datos — Dark mode
 
-## Deploy con
-- Github Pages
+<img width="600" alt="Vista con datos - modo oscuro" src="https://github.com/claudiapalazon/weather-app/assets/64781684/695aaf9d-11e2-440e-a41d-f6dcbb781308">
 
-## Recursos
-- Iconos de la Comunidad de Figma
+### Responsive
 
-## Configuración para lanzar la app en local
+<img width="200" alt="Vista responsive" src="https://github.com/claudiapalazon/weather-app/assets/64781684/d19ba85b-6d41-41f4-ae8f-a3fcbee98789">
 
-Para lanzar la aplicación en local se necesita añadir en la raíz del proyecto un archivo **.env** con la **OpenWeather API Key**. En este caso se ha utilizado la siguiente:
-**https://openweathermap.org/api/one-call-3** además de **https://openweathermap.org/api/geocoding-api**. Ambas funcionan con la misma API Key, la primera es para recibir la información del tiempo, la segunda es la que recoge el nombre de la localidad deseada y le pasa sus coordenadas a la primera.
+---
+
+## 🛠️ Stack técnico
+
+| Área        | Tecnologías                          |
+|------------|--------------------------------------|
+| **Frontend** | React 18, TypeScript                 |
+| **Estilos**  | SASS (módulos por página/componente) |
+| **Routing**  | React Router v6 (rutas anidadas)     |
+| **Estado**   | Estado local + Context (tema)        |
+| **API**      | OpenWeather (Geocoding + One Call 3) |
+| **Fechas**   | Moment.js (zonas horarias)           |
+| **Deploy**   | GitHub Pages                         |
+
+---
+
+## 📁 Estructura del proyecto
 
 ```
-REACT_APP_OPENWEATHER_API_KEY = 'YOUR_API_KEY'
+src/
+├── api/              # Llamadas a OpenWeather y tipos TypeScript
+├── assets/            # Iconos (SVG) e iconos de tiempo
+├── components/        # SearchBar, CurrentWeather, Hourly/DailyWeather, MenuDayHour, ModalSubscription
+├── contexts/          # ThemeContext (tema claro/oscuro)
+├── pages/             # Home, WeatherView, NotFound
+├── theme/             # ThemeProvider y ThemeSetter
+├── utils/             # Formateo de fechas/horas con timezone
+└── styles/            # SASS global y por componente/página
 ```
-#### Lanzar el proyecto
 
-En la terminal en la ruta del proyecto, hay que seguir los siguientes pasos:
+---
 
+## 🚀 Cómo ejecutarlo en local
+
+### Requisitos
+
+- Node.js y npm
+- API Key de [OpenWeather](https://openweathermap.org/) (Geocoding API y [One Call 3](https://openweathermap.org/api/one-call-3))
+
+### Pasos
+
+1. Clonar el repositorio e instalar dependencias:
+
+```bash
+git clone https://github.com/claudiapalazon/weather-app.git
+cd weather-app
+npm install
 ```
-npm install -> para instalar las dependencias
-npm run start -> para lanzar el proyecto en local
+
+2. Crear un archivo `.env` en la raíz con tu API Key (puedes copiar `.env.example` y renombrarlo):
+
+```env
+REACT_APP_OPENWEATHER_API_KEY=tu_api_key
 ```
 
-#### Script de empaquetado
+> **Importante:** sin espacios alrededor del `=`. Reinicia el servidor (`npm run start`) después de crear o modificar `.env`.
 
-Se ha creado un script para subir la aplicación a Github Pages
+3. Arrancar en desarrollo:
 
+```bash
+npm run start
 ```
+
+4. **(Opcional)** Desplegar en GitHub Pages:
+
+```bash
 npm run deploy
 ```
 
+---
 
+## 📜 Scripts disponibles
+
+| Comando        | Descripción                    |
+|----------------|--------------------------------|
+| `npm run start` | Servidor de desarrollo        |
+| `npm run build` | Build de producción           |
+| `npm run deploy`| Build + despliegue a gh-pages |
+| `npm test`      | Tests con React Testing Library |
+
+---
+
+## 📌 Notas
+
+- En la versión gratuita de OpenWeather, tras **más de 5 búsquedas o actualizaciones** se muestra un modal informativo; desde el propio modal se puede reiniciar el contador para seguir probando.
+- La app usa **HashRouter** para compatibilidad con GitHub Pages.
+
+---
+
+## 📎 Recursos
+
+- [OpenWeather API](https://openweathermap.org/api)
+- Iconos: Comunidad de Figma
